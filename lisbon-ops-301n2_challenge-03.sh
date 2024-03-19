@@ -10,7 +10,7 @@ read directory_path
 
 # Check if the entered path is a valid directory. If input is not (!) a valid directory (-d STRING), then it aborts the script with an error message
 if [ ! -d "$directory_path" ]; then
-    echo "Error: The directory '$directory_path' does not exist or is not a valid directory. Quitting..." | tee -a output_log.txt
+    echo "Error: The directory '$directory_path' does not exist or is not a valid directory. Script aborted." | tee -a output_log.txt
     exit 1
 fi
 
@@ -20,7 +20,7 @@ read chmod_value
 
 # Check if the entered chmod value is valid. If input is not a valid chmod value between 0 and 777, aborts the script with an error message
 if ! [[ "$chmod_value" =~ ^[0-7]+$ ]]; then
-    echo "Error: '$chmod_value' is not a valid chmod value. Enter a number between 0 and 777. Quitting..." | tee -a output_log.txt
+    echo "Error: '$chmod_value' is not a valid chmod value. Enter a number between 0 and 777. Script aborted." | tee -a output_log.txt
     exit 1
 fi
 
@@ -30,7 +30,7 @@ cd "$directory_path" || exit
 # Change the permission of all files in target directory to target chmod value
 echo "Changing permissions of files in '$directory_path'..." | tee -a output_log.txt
 for file in *; do
-    if [ "$file" != "change_permissions.log" ] && [ -f "$file" ]; then
+    if [ -f "$file" ]; then
         echo "Changing permission of file '$file'..." | tee -a output_log.txt
         sleep 1
         chmod "$chmod_value" "$file" | tee -a output_log.txt
