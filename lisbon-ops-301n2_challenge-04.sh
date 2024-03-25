@@ -14,13 +14,13 @@ while true; do # Sets up the main menu and a way for it to loop back to the star
 
 	if [[ $choice = 1 ]]; then # What happens when option 1 from the menu above is picked. If option 1 is picked, then...
 		ping -c 4 loopback # Pings host's loopback address 4 times and outputs results
-		echo "Choose another option:"
+		echo "Choose another option or press Enter to go back to main menu:"
 		read choice # Reads input
 	fi # Ends this condition
 
 	if [[ $choice = 2 ]]; then # If option 2 (IP info) is picked, then...
 		ip a # Shows network adapter information
-		echo "Choose another option:"
+		echo "Choose another option or press Enter to go back to main menu:"
 		read choice # Reads input
 	fi # Ends this condition
 
