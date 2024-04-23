@@ -45,9 +45,9 @@ list.extend(extend_list)
 print("Extension:", list)
 print("\n")
 
-# index() something in the ilst
+# index() something in the ilst (indexing starts from 0)
 index_3 = list.index("3")
-print("2 is indexed at:", index_3)
+print("3 is indexed at:", index_3)
 print("\n")
 
 # insert() "W" into an element
