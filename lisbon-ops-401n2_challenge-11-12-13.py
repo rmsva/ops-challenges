@@ -60,18 +60,18 @@ if __name__ == "__main__":
         scan_type = input("Enter scan type (host/network): ").lower()
 
         if scan_type == "host":
-            host = input("Enter target host IP (ex. 1.2.3.4): ")
-            ports = get_ports(input("Enter ports to scan (eg., 23,443,25535 or 10-18): "))
+            host = input("Enter target host address (ex. 1.2.3.4): ")
+            ports = get_ports(input("Enter ports (eg., 23,443,25535 or 10-18): "))
             scan_host(host, ports)
             break
 
         elif scan_type == "network":
             network = input("Enter target network address (eg., 1.2.3.0/24): ")
-            ports = get_ports(input("Enter ports to scan (eg., 23,443,25535 or 10-18): "))
+            ports = get_ports(input("Enter ports (eg., 23,443,25535 or 10-18): "))
             scan_network(network, ports)
             break
 
         else:
-            print("Invalid selection. Please enter 'host' or 'network'.")
+            print("Error! Please enter 'host' or 'network'.")
 
-    print("Scan completed.")
+    print("Done!")
